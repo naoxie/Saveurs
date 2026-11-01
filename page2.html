@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Nos recettes — Saveurs d'Asie</title>
+  <meta name="description" content="Toutes les recettes de Saveurs d'Asie : recherchez par mot-clé ou par pays (Thaïlande, Japon, Vietnam, Chine, Cambodge, Corée).">
+
+  <meta property="og:title" content="Nos recettes — Saveurs d'Asie">
+  <meta property="og:description" content="Une envie précise ? Un pays à découvrir ? Trouvez la recette qui vous fera voyager.">
+  <meta property="og:image" content="https://TON-SITE.netlify.app/images/partage.jpg">
+  <meta property="og:type" content="website">
+
+  <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Martel+Sans:wght@300;400;600;700;800&family=Yeseva+One&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <a href="#contenu" class="skip-link">Aller au contenu</a>
+
+  <!-- HEADER identique à l'accueil -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="logo"> Saveurs d'Asie</a>
+
+      <nav class="main-nav" aria-label="Navigation principale">
+        <a href="index.html">Accueil</a>
+        <a href="page2.html" class="active" aria-current="page">Nos recettes</a>
+        <a href="index.html#articles">Articles</a>
+        <a href="index.html#a-propos">À propos</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="contenu">
+
+    <!-- ============ HERO DE PAGE + RECHERCHE ============ -->
+    <section class="hero-sm">
+      <div class="container">
+        <h1>Toutes nos recettes</h1>
+        <p class="hero-sub">Une envie précise ? Un pays à découvrir ? Trouvez la recette qui vous fera voyager.</p>
+
+        <!-- Barre de recherche : le JavaScript écoute le champ #recherche -->
+        <form class="search-bar" id="formulaire-recherche" role="search">
+          <svg class="search-icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>
+          <!-- .search-field : conteneur qui sert de repère pour le texte animé -->
+          <div class="search-field">
+            <label for="recherche" class="sr-only">Rechercher une recette</label>
+            <input type="search" id="recherche" name="q" placeholder="Rechercher une recette, un ingrédient…" autocomplete="off">
+
+            <!-- Texte animé (décoratif, ignoré par les lecteurs d'écran) -->
+            <div class="search-hint" aria-hidden="true">
+              <span class="hint-fixe">Recherchez</span>
+              <span class="hint-mots" id="hint-mots"></span>
+            </div>
+          </div>
+          <button type="submit" class="btn btn-accent">Rechercher</button>
+        </form>
+      </div>
+    </section>
+
+    <!-- ============ FILTRES PAR PAYS ============ -->
+    <section class="section-filters" aria-label="Filtrer par pays">
+      <div class="container">
+        <div class="categories">
+          <button type="button" class="filtre active" data-pays="tous">
+            <span class="filtre-all">Tous</span>
+          </button>
+          <button type="button" class="filtre" data-pays="Thaïlande">
+            <img src="images/thailande.jpg" alt=""><span>Thaïlande</span>
+          </button>
+          <button type="button" class="filtre" data-pays="Japon">
+            <img src="images/japon.jpg" alt=""><span>Japon</span>
+          </button>
+          <button type="button" class="filtre" data-pays="Vietnam">
+            <img src="images/vietnam.jpg" alt=""><span>Vietnam</span>
+          </button>
+          <button type="button" class="filtre" data-pays="Chine">
+            <img src="images/chine.jpg" alt=""><span>Chine</span>
+          </button>
+          <button type="button" class="filtre" data-pays="Cambodge">
+            <img src="images/cambodge.jpg" alt=""><span>Cambodge</span>
+          </button>
+          <button type="button" class="filtre" data-pays="Corée">
+            <img src="images/corée.jpg" alt=""><span>Corée</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ GRILLE DE RECETTES ============ -->
+    <section class="section">
+      <div class="container">
+
+        <h2 class="sr-only">Résultats</h2>
+
+        <div class="results-bar">
+          <p id="compteur" aria-live="polite"></p>
+          <button type="button" id="reset" class="reset-btn" hidden>Réinitialiser</button>
+        </div>
+
+        <div class="cards cards-3" id="grille">
+
+          <article class="recipe-card" data-pays="Thaïlande" data-mots="nouilles de riz crevettes cacahuètes citron vert">
+            <img src="images/pad_thai.png" alt="Pad thaï aux crevettes">
+            <div class="recipe-body">
+              <p class="recipe-country">Thaïlande</p>
+              <h3>Pad thaï aux crevettes</h3>
+              <p>Nouilles de riz sautées, crevettes et cacahuètes.</p>
+              <p class="recipe-meta">30 min · Facile</p>
+              <a href="#" class="recipe-link">Voir la recette</a>
+            </div>
+          </article>
+
+          <article class="recipe-card" data-pays="Japon" data-mots="bouillon nouilles porc oeuf soupe">
+            <img src="images/japon.jpg" alt="Bol de ramen japonais">
+            <div class="recipe-body">
+              <p class="recipe-country">Japon</p>
+              <h3>Ramen</h3>
+              <p>Un bouillon réconfortant et des nouilles fondantes.</p>
+              <p class="recipe-meta">45 min · Moyen</p>
+              <a href="#" class="recipe-link">Voir la recette</a>
+            </div>
+          </article>
+
+          <article class="recipe-card" data-pays="Japon" data-mots="raviolis porc chou gingembre">
+            <img src="images/chine.jpg" alt="Gyozas dorés servis avec leur sauce pimentée">
+            <div class="recipe-body">
+              <p class="recipe-country">Japon</p>
+              <h3>Gyozas</h3>
+              <p>Raviolis dorés d'un côté, moelleux de l'autre.</p>
+              <p class="recipe-meta">50 min · Moyen</p>
+              <a href="#" class="recipe-link">Voir la recette</a>
+            </div>
+          </article>
+
+          <article class="recipe-card" data-pays="Corée" data-mots="riz légumes boeuf oeuf gochujang">
+            <img src="images/coree.jpg" alt="Bibimbap coréen">
+            <div class="recipe-body">
+              <p class="recipe-country">Corée</p>
+              <h3>Bibimbap</h3>
+              <p>Riz, légumes croquants et sauce pimentée à mélanger.</p>
+              <p class="recipe-meta">40 min · Facile</p>
+              <a href="#" class="recipe-link">Voir la recette</a>
+            </div>
+          </article>
+
+          <article class="recipe-card" data-pays="Vietnam" data-mots="galette de riz crevettes menthe entrée fraîche">
+            <img src="images/rouleaudeprintemps.jpg" alt="Rouleaux de printemps, sauce cacahuète et citron vert">
+            <div class="recipe-body">
+              <p class="recipe-country">Vietnam</p>
+              <h3>Rouleaux de printemps</h3>
+              <p>Frais, croquants et parfumés aux herbes.</p>
+              <p class="recipe-meta">30 min · Facile</p>
+              <a href="#" class="recipe-link">Voir la recette</a>
+            </div>
+          </article>
+
+          <article class="recipe-card" data-pays="Vietnam" data-mots="friture porc carotte entrée croustillant">
+            <img src="images/nems.jpg" alt="Nems croustillants sur une feuille de bananier">
+            <div class="recipe-body">
+              <p class="recipe-country">Vietnam</p>
+              <h3>Nems</h3>
+              <p>Petits rouleaux frits, croustillants et savoureux.</p>
+              <p class="recipe-meta">45 min · Moyen</p>
+              <a href="#" class="recipe-link">Voir la recette</a>
+            </div>
+          </article>
+
+          <article class="recipe-card" data-pays="Chine" data-mots="riz oeuf petits pois wok">
+            <img src="images/rizsaute.jpg" alt="Riz sauté aux légumes, œuf et poulet">
+            <div class="recipe-body">
+              <p class="recipe-country">Chine</p>
+              <h3>Riz sauté</h3>
+              <p>Le grand classique du wok, prêt en un éclair.</p>
+              <p class="recipe-meta">20 min · Facile</p>
+              <a href="#" class="recipe-link">Voir la recette</a>
+            </div>
+          </article>
+
+          <article class="recipe-card" data-pays="Cambodge" data-mots="poisson lait de coco citronnelle curry">
+            <img src="images/cambodge.jpg" alt="Amok cambodgien">
+            <div class="recipe-body">
+              <p class="recipe-country">Cambodge</p>
+              <h3>Amok</h3>
+              <p>Un curry doux et crémeux, cuit à la vapeur.</p>
+              <p class="recipe-meta">50 min · Moyen</p>
+              <a href="#" class="recipe-link">Voir la recette</a>
+            </div>
+          </article>
+
+          <article class="recipe-card" data-pays="Thaïlande" data-mots="lait de coco poulet épices piment">
+            <img src="images/thailande.jpg" alt="Curry thaï">
+            <div class="recipe-body">
+              <p class="recipe-country">Thaïlande</p>
+              <h3>Curry thaï</h3>
+              <p>Un curry onctueux au lait de coco et aux épices.</p>
+              <p class="recipe-meta">35 min · Facile</p>
+              <a href="#" class="recipe-link">Voir la recette</a>
+            </div>
+          </article>
+
+        </div>
+
+        <!-- Message affiché par le JavaScript quand rien ne correspond -->
+        <div id="aucun-resultat" class="no-result" hidden>
+          <h3>Aucune recette trouvée</h3>
+          <p>Essayez un autre mot-clé, ou changez de pays.</p>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+
+        <div>
+          <p class="footer-logo">Saveurs d'Asie</p>
+          <p class="footer-text">Des recettes pour voyager sans quitter sa cuisine.</p>
+        </div>
+
+        <div>
+          <h2 class="footer-title">Navigation</h2>
+          <ul class="footer-links">
+            <li><a href="index.html">Accueil</a></li>
+            <li><a href="page2.html">Nos recettes</a></li>
+            <li><a href="index.html#articles">Articles</a></li>
+            <li><a href="index.html#a-propos">À propos</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h2 class="footer-title">Catégories</h2>
+          <ul class="footer-links">
+            <li><a href="page2.html?pays=Japon">Japon</a></li>
+            <li><a href="page2.html?pays=Corée">Corée</a></li>
+            <li><a href="page2.html?pays=Chine">Chine</a></li>
+            <li><a href="page2.html?pays=Vietnam">Vietnam</a></li>
+            <li><a href="page2.html?pays=Thaïlande">Thaïlande</a></li>
+            <li><a href="page2.html?pays=Cambodge">Cambodge</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h2 class="footer-title">Nous suivre</h2>
+          <div class="footer-socials">
+            <a href="#" aria-label="Instagram">
+              <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+            </a>
+            <a href="#" aria-label="Facebook">
+              <svg viewBox="0 0 24 24" aria-hidden="true" fill="currentColor"><path d="M9 8H6v4h3v10h4V12h3l1-4h-4V6.5c0-1 .3-1.5 1.6-1.5H17V2h-3c-3 0-5 1.8-5 5z"/></svg>
+            </a>
+            <a href="#" aria-label="TikTok">
+              <svg viewBox="0 0 24 24" aria-hidden="true" fill="currentColor"><path d="M16.6 5.8A4.3 4.3 0 0 1 15.5 3h-3.1v12.4a2.6 2.6 0 1 1-2.6-2.6c.3 0 .5 0 .8.1V9.7a5.7 5.7 0 1 0 4.9 5.6V9a7.4 7.4 0 0 0 4.3 1.4V7.3a4.3 4.3 0 0 1-3.2-1.5z"/></svg>
+            </a>
+            <a href="#" aria-label="X / Twitter">
+              <svg viewBox="0 0 24 24" aria-hidden="true" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+      <p class="footer-copy">© 2026 Ça Saveur d'Asie — Tous droits réservés.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
